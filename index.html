@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const myRoot = document.getElementById('root');
+
+        const myWords = "I Love JSX!"
+        const name ="Ali"
+        const lastName = "Veli"
+        const city = "istanbul"
+        const cityLabel = "City"
+        const currentYear = new Date().getFullYear();
+        const birthYear = 1980
+        const myTechs = ["Html", "JS", "Css"]
+
+        const myObj = {
+            profileId : 123,
+            name: "Hasan",
+            lastName : "Soyad",
+            Age : "33"
+        }
+
+        const my_h1 = <h1>{myWords}</h1>;
+        /**
+        let myElem = document.createElement('h1');
+        myElem.innerText = 'I Love JSX!';
+        */
+       //ReactDOM.render(myElement, myRoot); // for older react versions <18
+
+        const myDiv =<div>{my_h1}</div>
+
+        const cityDom = <p>{cityLabel} : {city}</p>
+        const nameDom = <p>{name}</p>
+        const lastNameDom = <p>{lastName}</p>
+        const yearDom = <p>{currentYear}</p>
+        const birthYearDom = <p>{birthYear}</p>
+
+        const profileDom = <div>Profil : {myObj.name} {myObj.lastName}</div>
+
+        const yearsOldDom = <p>{currentYear - birthYear}</p>
+
+        const myTechsDom = <p>{myTechs.join(' , ')}</p>
+
+        
+
+
+        //let myDomArr = [];
+        // for (let i = 0; i < myTechs.length; i++) {
+        //     const element =<li key={myTechs[i]}>{myTechs[i]}</li>;
+        //     myDomArr.push(element)
+        // }
+       
+        //myDomArr = myTechs.map((item)=> <li key={item} >{item}</li> )
+        
+        const myTechsListDomTemp = <ul>{myTechs.map((item)=> <li key={item} >{item}</li> )}</ul>
+
+        // const myTechsListDom = <ul>
+        //                         <li>HTML</li>
+        //                         <li>HTML1</li>
+        //                         <li>HTML2</li>
+        //                        </ul>
+        const header = <header>
+            {myDiv}
+            {cityDom}
+            {nameDom} 
+            {lastNameDom}
+            {profileDom}
+            {yearDom}
+            {birthYearDom}
+            {yearsOldDom}
+            {myTechsListDomTemp}
+            {/*myDomArr*/}
+            {/*myTechsListDom*/} 
+        </header>
+        
+        const root = ReactDOM.createRoot(myRoot);
+        root.render(header);
+         
+    </script>
+
+</body>
+</html>
